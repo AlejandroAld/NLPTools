@@ -50,7 +50,10 @@ def test_tf_idf_single():
     tfidf.fit(document)
     test_sentence = "This is good, actually, it is amazing! Please, give me more!"
     array = tfidf.transform(Sentence(0, len(test_sentence), test_sentence))
+    print(tfidf.explain(array))
     print(array)
+    print(array.shape)
+    print(len(tfidf.word_indexes))
     assert array.shape == (len(tfidf.word_indexes),)
 
 def test_tf_idf_full_doc():
